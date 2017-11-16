@@ -1,0 +1,8 @@
+# Makefile.dep created Wed Jul  1 19:09:51 PDT 2015
+bigint.o: bigint.cpp bigint.h debug.h rel_ops.h ubigint.h
+ubigint.o: ubigint.cpp ubigint.h debug.h rel_ops.h
+scanner.o: scanner.cpp scanner.h debug.h
+debug.o: debug.cpp debug.h general.h
+general.o: general.cpp general.h debug.h
+main.o: main.cpp bigint.h debug.h rel_ops.h ubigint.h iterstack.h \
+ scanner.h general.h

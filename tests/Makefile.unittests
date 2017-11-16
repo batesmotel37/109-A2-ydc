@@ -1,0 +1,21 @@
+
+FILES = debug.cpp general.cpp
+COMPILE = g++ -std=c++11
+INCLUDES = -I/afs/cats.ucsc.edu/courses/cmps109-wm/TA/include/
+LIBDIR = -L/afs/cats.ucsc.edu/courses/cmps109-wm/TA/lib/
+LIB = -lUnitTest++
+
+all : clean ubigint bigint
+
+ubigint :
+	${COMPILE} -o ubigint_tests ${INCLUDES} ${LIBDIR} ubigint_tests.cpp ubigint.cpp ${FILES} ${LIB}
+
+bigint :
+	${COMPILE} -o bigint_tests ${INCLUDES} ${LIBDIR} bigint_tests.cpp ubigint.cpp bigint.cpp libfns.cpp ${FILES} ${LIB}
+
+exemplar :
+	g++ -o exemplarTests -I/afs/cats.ucsc.edu/courses/cmps109-wm/TA/include/ -L/afs/cats.ucsc.edu/courses/cmps109-wm/TA/lib/ exampleTests.cpp -lUnitTest++
+	./exemplarTests
+
+clean : 
+	- rm *.o exemplarTests ubigint_tests
